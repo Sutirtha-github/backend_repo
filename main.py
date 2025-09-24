@@ -9,6 +9,13 @@ import pandas as pd
 
 # 2. Create the app object
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 pickle_in = open("classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
@@ -48,5 +55,6 @@ def predict_banknote(data:BankNote):
 if __name__ == '__main__':
     uvicorn.run(app, host='127.0.0.1', port=8000)
 #uvicorn app:app --reload
+
 
 
