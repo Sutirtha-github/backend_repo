@@ -3,4 +3,8 @@ uvicorn
 gunicorn
 winloop
 httptools
-
+numpy
+scipy
+scikit-learn
+matplotlib
+pandas
